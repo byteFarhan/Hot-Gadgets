@@ -1,15 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hot Gadgets</title>
+    <!-- favIcon -->
     <link rel="shortcut icon" href="./assets/Hot-Gadgets.png" type="image/x-icon">
+    <!-- Fontawesome's CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font poppins & open-sans-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Tailwind CSS's CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Daisy UI's CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.4.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <!-- Tailwind CSS Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        "poppins": "'Poppins', sans-serif;",
+                        "open-sans": "'Open Sans', sans-serif",
+                    },
+                    colors: {
+                        primary: '#0D6EFD',
+                        title: '#100F0F',
+                        gray: '#706F6F',
+                    }
+                },
+                container: {
+                    center: true,
+                    padding: {
+                        DEFAULT: '1.5rem',
+                        // md: '2rem',
+                        // lg: '4rem',
+                        // xl: '5rem',
+                        // '2xl': '6rem'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Tailwind CSS Customization -->
+    <style type="text/tailwindcss">
+
+        @layer base {
+            h1,h2,h3,h4,h5{
+                @apply text-title;
+            }
+      p {
+        @apply text-gray lg:text-xl;
+      }
+      
+    }
+    @layer components {
+      .btn-primary {
+        @apply bg-primary border-none focus:border-none hover:bg-primary text-white capitalize text-base font-bold py-3 px-6 rounded-md;
+      }
+    }
+  </style>
 </head>
 
-<body>
-
+<body class="font-poppins">
+    <header></header>
+    <main>
+        <button class="btn-primary">Sign Up</button>
+        <h1 class="text-3xl font-bold">Hello world</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita asperiores enim eveniet soluta dolorum,
+            iure mollitia explicabo perspiciatis deleniti sequi dicta quibusdam. Ipsa perspiciatis accusantium inventore
+            veritatis excepturi illo beatae.</p>
+    </main>
+    <footer></footer>
 </body>
 
 </html>
