@@ -55,26 +55,39 @@
                 @apply text-title;
             }
       p {
-        @apply text-gray lg:text-xl;
+        @apply text-gray lg:text-xl leading-[30px];
       }
       
     }
     @layer components {
       .btn-primary {
-        @apply bg-primary border-none focus:border-none hover:bg-primary text-white capitalize text-base font-bold py-3 px-6 rounded-md;
+        @apply bg-primary border-none focus:border-none hover:bg-primary text-white capitalize text-base font-bold py-4 px-10 rounded-md;
       }
     }
   </style>
 </head>
 
 <body class="font-poppins">
-    <header></header>
+    <header class="py-12 bg-[#0d6efd0d] h-[80vh]">
+        <div class="flex justify-between items-center max-w-[1280px] container">
+            <h3 class="text-3xl font-bold">Hot Gadgets</h3>
+            <button class="btn-primary">Sign Up</button>
+        </div>
+        <div class="space-y-6 text-center py-16">
+            <h1 class="text-3xl md:text-4xl lg:text-[65px] font-bold mb-10">Apple Iphone 13 Pro Max</h1>
+            <p class="lg:w-1/2 mx-auto mt-6">There are many variations of passages of Lorem Ipsum available, but
+                the majority have suffered alteration
+                in some form, by injected humou.</p>
+            <button class="btn-primary">Buy Now</button>
+        </div>
+        <div class="hidden lg:flex justify-center gap-10 items-baseline">
+            <img src="./assets/pngwing 3.png" alt="" class="h-[440px] w-[220px] object-cover">
+            <img src="./assets/pngwing 1 (1).png" alt="" class="object-cover h-[585px] w-[295px]">
+            <img src="./assets/pngwing 3.png" alt="" class="h-[440px] w-[220px] object-cover">
+        </div>
+    </header>
     <main>
-        <button class="btn-primary">Sign Up</button>
-        <h1 class="text-3xl font-bold">Hello world</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita asperiores enim eveniet soluta dolorum,
-            iure mollitia explicabo perspiciatis deleniti sequi dicta quibusdam. Ipsa perspiciatis accusantium inventore
-            veritatis excepturi illo beatae.</p>
+
     </main>
     <footer></footer>
 </body>
