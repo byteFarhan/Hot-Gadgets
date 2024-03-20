@@ -1,10 +1,11 @@
-const loadPhones = async () => {
-  const url = `https://openapi.programming-hero.com/api/phones?search=iphone`;
+const loadPhones = async (searchText = "iphone") => {
+  const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
   try {
     const res = await fetch(url);
     const data = await res.json();
     const phones = data.data;
     console.log(phones);
+
     displayPhones(phones);
     // return phones;
   } catch (e) {
@@ -14,17 +15,21 @@ const loadPhones = async () => {
 
 // const phones = loadPhones();
 // console.log(phones);
+
 function displayPhones(phones) {
   //   console.log(phones);
   const phonesContainer = document.getElementById("phones-container");
-  console.log(phonesContainer);
+  // console.log(phonesContainer.innerHTML);
+
+  phonesContainer.innerHTML = phonesContainer.innerHTML && "";
+  //   console.log(phonesContainer);
   phones.forEach((phone) => {
-    console.log(phone);
+    // console.log(phone);
     const div = document.createElement("div");
     div.classList = `card bg-base-100 border border-[#0d6efd0d] shadow p-5 rounded-lg`;
     div.innerHTML = `
-    <figure class=" bg-[#0d6efd0d] py-10">
-        <img src="${phone.image}" alt="Shoes" class="rounded-lg h-[250px]" />
+    <figure class=" bg-secondary py-10 lg:py-12">
+        <img src="${phone.image}" alt="${phone.phone_name}" class="rounded-lg h-[250px] object-cover bg-transparent" draggable="false"/>
     </figure>
     <div class="text-center space-y-2">
         <h3 class="text-2xl font-bold my-5">${phone.phone_name}</h3>
@@ -36,4 +41,18 @@ function displayPhones(phones) {
     phonesContainer.appendChild(div);
   });
 }
+
+// Functionallity for search phones!
+const searchInput = document.getElementById("search-input");
+document.getElementById("search-btn").addEventListener("click", (e) => {
+  e.preventDefault();
+  const searchText = searchInput.value;
+  console.log(searchText);
+  if (!searchText) {
+    alert("Search Filed is empty!");
+    return;
+  }
+  loadPhones(searchText);
+});
+
 loadPhones();

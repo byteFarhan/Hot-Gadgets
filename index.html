@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hot Gadgets</title>
     <!-- favIcon -->
-    <link rel="shortcut icon" href="./assets/Hot-Gadgets.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/Hot-Gadgets-logo.png" type="image/x-icon">
     <!-- Fontawesome's CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Font poppins & open-sans-->
@@ -30,6 +30,7 @@
                     },
                     colors: {
                         primary: '#0D6EFD',
+                        secondary: '#0d6efd0d',
                         title: '#100F0F',
                         gray: '#706F6F',
                     }
@@ -68,33 +69,33 @@
 </head>
 
 <body class="font-poppins">
-    <header class="py-12 bg-[#0d6efd0d] lg:h-[80vh] px-5 lg:px-0">
+    <header class="py-12 bg-secondary lg:h-[80vh] px-5 lg:px-0">
         <div class="flex justify-between items-center max-w-[1280px] container">
-            <h3 class="text-2xl md:text-3xl font-bold">Hot Gadgets</h3>
+            <h3 class="text-2xl font-bold md:text-3xl">Hot Gadgets</h3>
             <button class="btn-primary">Sign Up</button>
         </div>
-        <div class="space-y-6 text-center py-16">
+        <div class="py-16 space-y-6 text-center">
             <h1 class="text-3xl md:text-4xl lg:text-[65px] font-bold mb-6 lg:mb-10">Apple Iphone 13 Pro Max</h1>
-            <p class="lg:w-1/2 mx-auto mt-6">There are many variations of passages of Lorem Ipsum available, but
+            <p class="mx-auto mt-6 lg:w-1/2">There are many variations of passages of Lorem Ipsum available, but
                 the majority have suffered alteration
                 in some form, by injected humou.</p>
             <button class="btn-primary">Buy Now</button>
         </div>
-        <div class="hidden lg:flex justify-center gap-10 items-baseline">
+        <div class="items-baseline justify-center hidden gap-10 lg:flex">
             <img src="./assets/pngwing 3.png" alt="" class="h-[440px] w-[220px] object-cover" draggable="false">
             <img src="./assets/pngwing 1 (1).png" alt="" class="object-cover h-[585px] w-[295px]" draggable="false">
             <img src="./assets/pngwing 3.png" alt="" class="h-[440px] w-[220px] object-cover" draggable="false">
         </div>
     </header>
     <main>
-        <div class="mb-10 mt-16 lg:mt-80 space-y-5 px-5 lg:px-0">
-            <h3 class="text-center font-bold text-2xl md:text-3xl lg:text-4xl">Search your phone</h3>
+        <div class="px-5 mt-16 mb-10 space-y-5 lg:mt-80 lg:px-0">
+            <h3 class="text-2xl font-bold text-center md:text-3xl lg:text-4xl">Search your phone</h3>
             <!-- Search fild -->
             <form class="max-w-3xl mx-auto">
                 <label for="default-search"
                     class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
                 <div class="relative">
-                    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                    <div class="absolute inset-y-0 flex items-center pointer-events-none start-0 ps-3">
                         <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -102,30 +103,34 @@
                         </svg>
                     </div>
                     <input type="search" id="search-input"
-                        class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-md bg-[#0d6efd0d] focus:ring-blue-500 focus:border-blue-500"
+                        class="block w-full p-4 text-sm text-gray-900 border border-gray-300 rounded-md ps-10 bg-secondary focus:ring-blue-500 focus:border-blue-500"
                         placeholder="Search your phone" />
-                    <button
+                    <button id="search-btn"
                         class="text-white absolute end-2.5 bottom-1.5 bg-primary hover:bg-blue-600 focus:outline-none font-medium rounded-md px-4 py-2">Search</button>
                 </div>
             </form>
         </div>
         <!-- display phones section -->
         <div class="text-center my-20 max-w-[1280px] container">
-            <div id="phones-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- <div class="card bg-base-100 border border-[#0d6efd0d] shadow p-5 rounded-lg">
-                    <figure class=" bg-[#0d6efd0d] py-10">
+
+
+            <div id="phones">
+                <div id="phones-container" class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    <!-- <div class="p-5 border rounded-lg shadow card bg-base-100 border-secondary">
+                    <figure class="py-10 bg-secondary">
                         <img src="./assets/pngwing 3.png" alt="Shoes" class="rounded-lg h-[250px] " />
                     </figure>
-                    <div class="text-center space-y-2">
-                        <h3 class="text-2xl font-bold my-5">Iphone 13 Pro Max</h3>
+                    <div class="space-y-2 text-center">
+                        <h3 class="my-5 text-2xl font-bold">Iphone 13 Pro Max</h3>
                         <p>There are many variations of passages of available, but the majority have suffered</p>
                         <h4 class="text-2xl font-bold">$999</h4>
                         <button class="btn-primary py-2.5 px-4 font-semibold">Show Details</button>
 
                     </div>
                 </div> -->
+                </div>
+                <button class="my-8 btn-primary">Show All</button>
             </div>
-            <button class="btn-primary my-8">Show All</button>
         </div>
 
     </main>
