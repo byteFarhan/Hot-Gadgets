@@ -5,7 +5,11 @@ const loadPhones = async (searchText = "iphone") => {
     const data = await res.json();
     const phones = data.data;
     console.log(phones);
-
+    if (!phones.length) {
+      document.getElementById("phones").classList.add("hidden");
+      document.getElementById("not-available").classList.remove("hidden");
+      return;
+    }
     displayPhones(phones);
     // return phones;
   } catch (e) {
@@ -20,7 +24,8 @@ function displayPhones(phones) {
   //   console.log(phones);
   const phonesContainer = document.getElementById("phones-container");
   // console.log(phonesContainer.innerHTML);
-
+  document.getElementById("not-available").classList.add("hidden");
+  document.getElementById("phones").classList.remove("hidden");
   phonesContainer.innerHTML = phonesContainer.innerHTML && "";
   //   console.log(phonesContainer);
   phones.forEach((phone) => {
@@ -47,7 +52,8 @@ const searchInput = document.getElementById("search-input");
 document.getElementById("search-btn").addEventListener("click", (e) => {
   e.preventDefault();
   const searchText = searchInput.value;
-  console.log(searchText);
+  // console.log(searchText);
+  searchInput.value = "";
   if (!searchText) {
     alert("Search Filed is empty!");
     return;
