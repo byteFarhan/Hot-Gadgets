@@ -53,7 +53,7 @@
 
         @layer base {
             h1,h2,h3,h4,h5{
-                @apply text-title;
+                @apply text-title font-open-sans;
             }
       p {
         @apply text-gray lg:text-xl leading-normal;
@@ -105,7 +105,7 @@
                     </div>
                     <input type="search" id="search-input"
                         class="block w-full p-4 text-sm text-gray-900 border border-gray-300 rounded-md ps-10 bg-secondary focus:ring-blue-500 focus:border-blue-500"
-                        placeholder="Search your phone" />
+                        placeholder="Search phone like Oppo, IPhone, Samsung..." />
                     <button id="search-btn"
                         class="text-white absolute end-2.5 bottom-1.5 bg-primary hover:bg-blue-600 focus:outline-none font-medium rounded-md px-4 py-2">Search</button>
                 </div>
@@ -113,32 +113,30 @@
             </form>
         </div>
         <!-- display phones section -->
-        <div id="not-available" class="hidden">
-            <div class="flex flex-col items-center justify-center space-y-4 text-center capitalize h-96">
-                <h2 class="text-3xl font-bold md:text-4xl">Oops..!😥</h2>
-                <p class="text-lg font-medium md:text-xl">The item is not available yet!</p>
-            </div>
-        </div>
         <div class="text-center my-20 max-w-[1280px] container">
             <div id="spinner-container" class="justify-center items-center h-[50vh] hidden">
                 <span class="loading loading-spinner loading-lg bg-primary"></span>
             </div>
-
-
+            <div id="not-available" class="hidden">
+                <div class="flex flex-col items-center justify-center space-y-4 text-center capitalize h-96">
+                    <h2 class="text-3xl font-bold md:text-4xl">Oops..!😥</h2>
+                    <p class="text-lg font-medium md:text-xl">The item is not available yet!</p>
+                </div>
+            </div>
             <div id="phones">
                 <div id="phones-container" class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                     <!-- <div class="p-5 border rounded-lg shadow card bg-base-100 border-secondary">
-                    <figure class="py-10 bg-secondary">
-                        <img src="./assets/pngwing 3.png" alt="Shoes" class="rounded-lg h-[250px] " />
-                    </figure>
-                    <div class="space-y-2 text-center">
-                        <h3 class="my-5 text-2xl font-bold">Iphone 13 Pro Max</h3>
-                        <p>There are many variations of passages of available, but the majority have suffered</p>
-                        <h4 class="text-2xl font-bold">$999</h4>
-                        <button class="btn-primary py-2.5 px-4 font-semibold">Show Details</button>
-
-                    </div>
-                </div> -->
+                        <figure class="py-10 bg-secondary">
+                            <img src="./assets/pngwing 3.png" alt="Shoes" class="rounded-lg h-[250px] " />
+                        </figure>
+                        <div class="space-y-2 text-center">
+                            <h3 class="my-5 text-2xl font-bold">Iphone 13 Pro Max</h3>
+                            <p>There are many variations of passages of available, but the majority have suffered</p>
+                            <h4 class="text-2xl font-bold">$999</h4>
+                            <button class="btn-primary py-2.5 px-4 font-semibold">Show Details</button>
+    
+                        </div>
+                    </div> -->
                 </div>
                 <button id="show-all" class="hidden my-7 lg:my-10 btn-primary">
                     Show All</button>
@@ -146,12 +144,64 @@
             </div>
         </div>
         <!-- Open the modal using ID.showModal() method -->
-        <!-- <button class="btn" onclick="show_phone_detailes.showModal()">open modal</button> -->
         <dialog id="show_phone_detailes" class="modal modal-bottom sm:modal-middle">
             <!-- Phone detailes will be add here -->
         </dialog>
     </main>
-    <footer>
+    <footer class="pt-16 pb-16 bg-secondary lg:pt-28">
+        <div class="max-w-[1280px] container">
+            <div class="flex flex-col gap-8 lg:justify-between lg:flex-row lg:gap-0">
+                <div class="space-y-3">
+                    <h2 class="text-3xl font-bold md:text-4xl lg:text-5xl">Hot Gadgets</h2>
+                    <p>You can definitely work.</p>
+                </div>
+                <div class="flex gap-6">
+                    <div
+                        class="flex justify-center gap-4 md:gap-6 *:p-4 *:text-2xl  *:bg-white *:text-title *:rounded-full">
+
+                        <div>
+                            <p><i class="fa-brands fa-facebook-f"></i></p>
+                        </div>
+
+                        <p><i class="fa-brands fa-twitter"></i></p>
+                        <p><i class="fa-brands fa-instagram"></i></p>
+
+                    </div>
+
+                    <button class="btn-primary">Join Premium</button>
+                </div>
+            </div>
+            <hr class="my-6 md:my-8 lg:my-12 bg-[#CFCFCF] h-[1px]">
+            <div class="flex-col footer lg:flex-row">
+                <nav>
+                    <h6 class="footer-title">Services</h6>
+                    <a class="link link-hover">Branding</a>
+                    <a class="link link-hover">Design</a>
+                    <a class="link link-hover">Marketing</a>
+                    <a class="link link-hover">Advertisement</a>
+                </nav>
+                <nav>
+                    <h6 class="footer-title">Company</h6>
+                    <a class="link link-hover">About us</a>
+                    <a class="link link-hover">Contact</a>
+                    <a class="link link-hover">Jobs</a>
+                    <a class="link link-hover">Press kit</a>
+                </nav>
+                <nav>
+                    <h6 class="footer-title">Company</h6>
+                    <a class="link link-hover">About us</a>
+                    <a class="link link-hover">Contact</a>
+                    <a class="link link-hover">Jobs</a>
+                    <a class="link link-hover">Press kit</a>
+                </nav>
+                <nav>
+                    <h6 class="footer-title">Legal</h6>
+                    <a class="link link-hover">Terms of use</a>
+                    <a class="link link-hover">Privacy policy</a>
+                    <a class="link link-hover">Cookie policy</a>
+                </nav>
+            </div>
+        </div>
     </footer>
     <script src="./js/phone.js"></script>
 </body>

@@ -1,9 +1,11 @@
 let searchTextForShowAllBtn;
 const handleShowSpinner = (isLoading) => {
   const spinnerContainer = document.getElementById("spinner-container");
+  const notAvailable = document.getElementById("not-available");
   const phones = document.getElementById("phones");
   if (isLoading) {
     phones.classList.add("hidden");
+    notAvailable.classList.add("hidden");
     spinnerContainer.classList.remove("hidden");
     spinnerContainer.classList.add("flex");
   } else {
@@ -27,11 +29,12 @@ document.getElementById("search-btn").addEventListener("click", (e) => {
   }
   loadPhones(searchText);
 });
+// Functionality for Show All Button
 // function handleShowAll(searchText) {
 //   loadPhones(searchText, true);
 // }
 document.getElementById("show-all").addEventListener("click", (e) => {
-  console.log(searchTextForShowAllBtn);
+  // console.log(searchTextForShowAllBtn);
   loadPhones(searchTextForShowAllBtn, true);
 });
 async function loadPhones(searchText = "iphone", isShowAll) {
@@ -49,7 +52,7 @@ async function loadPhones(searchText = "iphone", isShowAll) {
       // document.getElementById("spinner-container").classList.add("hidden");
       return;
     }
-    const shortListOfPhones = phones.slice(0, 12);
+    // const shortListOfPhones = phones.slice(0, 12);
     const showAllBtn = document.getElementById("show-all");
     if (phones.length > 12 && !isShowAll) {
       showAllBtn.classList.remove("hidden");
@@ -61,11 +64,11 @@ async function loadPhones(searchText = "iphone", isShowAll) {
     }
     setTimeout(() => {
       displayPhones(phones);
-    }, 2000);
+    }, 1000);
     // displayPhones(phones);
     // return phones;
-  } catch (e) {
-    console.error(e.message);
+  } catch (error) {
+    console.error(error.message);
   }
 }
 
@@ -115,7 +118,6 @@ function displayPhones(phones) {
   // button.classList = "my-8 btn-primary";
   // document.getElementById("phones").appendChild(button);
 }
-loadPhones();
 
 // Function for show specific Phone details
 async function handleShowDetails(phoneId) {
@@ -128,7 +130,7 @@ async function handleShowDetails(phoneId) {
   displayShowDetailesModal(phoneDetailes);
 }
 function displayShowDetailesModal(phoneDetailes) {
-  console.log(phoneDetailes);
+  // console.log(phoneDetailes);
   const { name, image, brand, slug, others, releaseDate, mainFeatures } =
     phoneDetailes;
   const showPhoneDetailes = document.getElementById("show_phone_detailes");
@@ -179,3 +181,4 @@ function displayShowDetailesModal(phoneDetailes) {
   `;
   show_phone_detailes.showModal();
 }
+loadPhones();
