@@ -111,13 +111,17 @@
             </form>
         </div>
         <!-- display phones section -->
-        <div class="text-center my-20 max-w-[1280px] container">
-            <div id="not-available" class="hidden">
-                <div class="flex flex-col items-center justify-center space-y-4 text-center capitalize h-96">
-                    <h2 class="text-3xl font-bold md:text-4xl">Oops..!😥</h2>
-                    <p class="text-lg font-medium md:text-xl">The item is not available yet!</p>
-                </div>
+        <div id="not-available" class="hidden">
+            <div class="flex flex-col items-center justify-center space-y-4 text-center capitalize h-96">
+                <h2 class="text-3xl font-bold md:text-4xl">Oops..!😥</h2>
+                <p class="text-lg font-medium md:text-xl">The item is not available yet!</p>
             </div>
+        </div>
+        <div class="text-center my-20 max-w-[1280px] container">
+            <div id="spinner-container" class="justify-center items-center h-[50vh] hidden">
+                <span class="loading loading-spinner loading-lg bg-primary"></span>
+            </div>
+
 
             <div id="phones">
                 <div id="phones-container" class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
