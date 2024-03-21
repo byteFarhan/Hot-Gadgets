@@ -56,7 +56,7 @@
                 @apply text-title;
             }
       p {
-        @apply text-gray lg:text-xl leading-[30px];
+        @apply text-gray lg:text-xl leading-normal;
       }
       
     }
@@ -76,7 +76,8 @@
         </div>
         <div class="py-16 space-y-6 text-center">
             <h1 class="text-3xl md:text-4xl lg:text-[65px] font-bold mb-6 lg:mb-10">Apple Iphone 13 Pro Max</h1>
-            <p class="mx-auto mt-6 lg:w-1/2">There are many variations of passages of Lorem Ipsum available, but
+            <p class="mx-auto mt-6 lg:w-1/2 leading-[30px]">There are many variations of passages of Lorem Ipsum
+                available, but
                 the majority have suffered alteration
                 in some form, by injected humou.</p>
             <button class="btn-primary">Buy Now</button>
@@ -144,9 +145,14 @@
                 <!-- onclick={handleShowAll()} -->
             </div>
         </div>
-
+        <!-- Open the modal using ID.showModal() method -->
+        <!-- <button class="btn" onclick="show_phone_detailes.showModal()">open modal</button> -->
+        <dialog id="show_phone_detailes" class="modal modal-bottom sm:modal-middle">
+            <!-- Phone detailes will be add here -->
+        </dialog>
     </main>
-    <footer></footer>
+    <footer>
+    </footer>
     <script src="./js/phone.js"></script>
 </body>
 
