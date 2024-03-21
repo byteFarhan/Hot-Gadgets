@@ -1,3 +1,4 @@
+let searchTextForShowAllBtn;
 const handleShowSpinner = (isLoading) => {
   const spinnerContainer = document.getElementById("spinner-container");
   const phones = document.getElementById("phones");
@@ -11,13 +12,35 @@ const handleShowSpinner = (isLoading) => {
     spinnerContainer.classList.add("hidden");
   }
 };
-const loadPhones = async (searchText = "iphone") => {
+// Functionallity for search phones!
+const searchInput = document.getElementById("search-input");
+document.getElementById("search-btn").addEventListener("click", (e) => {
+  e.preventDefault();
+  // handleShowSpinner(true);
+  const searchText = searchInput.value;
+  searchTextForShowAllBtn = searchText;
+  // console.log(searchText);
+  searchInput.value = "";
+  if (!searchText) {
+    alert("Search field is empty!");
+    return;
+  }
+  loadPhones(searchText);
+});
+// function handleShowAll(searchText) {
+//   loadPhones(searchText, true);
+// }
+document.getElementById("show-all").addEventListener("click", (e) => {
+  console.log(searchTextForShowAllBtn);
+  loadPhones(searchTextForShowAllBtn, true);
+});
+async function loadPhones(searchText = "iphone", isShowAll) {
   handleShowSpinner(true);
   const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
   try {
     const res = await fetch(url);
     const data = await res.json();
-    const phones = data.data;
+    let phones = data.data;
     // console.log(phones);
     if (!phones.length) {
       handleShowSpinner(false);
@@ -25,6 +48,16 @@ const loadPhones = async (searchText = "iphone") => {
       document.getElementById("not-available").classList.remove("hidden");
       // document.getElementById("spinner-container").classList.add("hidden");
       return;
+    }
+    const shortListOfPhones = phones.slice(0, 12);
+    const showAllBtn = document.getElementById("show-all");
+    if (phones.length > 12 && !isShowAll) {
+      showAllBtn.classList.remove("hidden");
+    } else {
+      showAllBtn.classList.add("hidden");
+    }
+    if (!isShowAll) {
+      phones = phones.slice(0, 12);
     }
     setTimeout(() => {
       displayPhones(phones);
@@ -34,7 +67,7 @@ const loadPhones = async (searchText = "iphone") => {
   } catch (e) {
     console.error(e.message);
   }
-};
+}
 
 // const phones = loadPhones();
 // console.log(phones);
@@ -47,6 +80,16 @@ function displayPhones(phones) {
   document.getElementById("phones").classList.remove("hidden");
   phonesContainer.innerHTML = phonesContainer.innerHTML && "";
   //   console.log(phonesContainer);
+  // const showAllBtn = document.getElementById("show-all");
+  // if (phones.length > 12 && !isShowAll) {
+  //   showAllBtn.classList.remove("hidden");
+  // } else {
+  //   showAllBtn.classList.add("hidden");
+  // }
+  // if (!isShowAll) {
+  //   phones = phones.slice(0, 12);
+  // }
+
   phones.forEach((phone) => {
     // console.log(phone);
     const div = document.createElement("div");
@@ -70,19 +113,4 @@ function displayPhones(phones) {
   // button.classList = "my-8 btn-primary";
   // document.getElementById("phones").appendChild(button);
 }
-
-// Functionallity for search phones!
-const searchInput = document.getElementById("search-input");
-document.getElementById("search-btn").addEventListener("click", (e) => {
-  e.preventDefault();
-  const searchText = searchInput.value;
-  // console.log(searchText);
-  searchInput.value = "";
-  if (!searchText) {
-    alert("Search field is empty!");
-    return;
-  }
-  loadPhones(searchText);
-});
-
 loadPhones();
